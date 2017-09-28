@@ -5,6 +5,7 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@
     </head>
     <body>
         <h1>
-            Liste genres
+            <spring:message code="genre.list"/>
         </h1>
         <a href="genre_ajouter"><button>Nouveau</button></a>
         <br>

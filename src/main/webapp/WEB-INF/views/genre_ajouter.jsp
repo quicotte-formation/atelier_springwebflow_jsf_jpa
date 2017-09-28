@@ -15,6 +15,7 @@
     <body>
         <h1>Nouveau genre</h1>
         <form:form modelAttribute="genre">
+            <form:errors path="nom" cssStyle="background-color: red" />
             <form:input path="nom" placeholder="Nom du genre"/>
             <input type="submit"/>
         </form:form>

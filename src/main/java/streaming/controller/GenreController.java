@@ -6,9 +6,11 @@
 package streaming.controller;
 
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +58,12 @@ public class GenreController {
     }
     
     @RequestMapping(value = "/genre_ajouter", method = RequestMethod.POST)
-    public String ajouterPOST( @ModelAttribute("genre") Genre g ){
+    public String ajouterPOST( @ModelAttribute("genre") @Valid Genre g, BindingResult result ){
+        
+        if( result.hasErrors() ){
+            
+            return "genre_ajouter.jsp";
+        }
         
         service.save(g);
         
