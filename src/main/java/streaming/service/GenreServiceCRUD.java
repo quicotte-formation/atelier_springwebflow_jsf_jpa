@@ -5,6 +5,8 @@
  */
 package streaming.service;
 
+import java.util.List;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import streaming.entity.Genre;
 
@@ -14,4 +16,8 @@ import streaming.entity.Genre;
  */
 public interface GenreServiceCRUD extends CrudRepository<Genre, Long>{
     
+    @Query(value = "SELECT g FROM Genre g ORDER BY g.nom")
+    public List<Genre> listerTousParOrdreAlpha();
+    
+    public List<Genre> findAllByOrderByNom();
 }

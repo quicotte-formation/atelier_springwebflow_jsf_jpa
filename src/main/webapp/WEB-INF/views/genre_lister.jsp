@@ -13,9 +13,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Liste genres</h1>
+        <h1>
+            Liste genres
+        </h1>
+        <a href="genre_ajouter"><button>Nouveau</button></a>
+        <br>
         <c:forEach items="${listeGenres}" var="genre">
             GENRE: ${genre.nom}
+            <a href="genre_supprimer/${genre.id}"><button>Supprimer</button></a>
+            <a href="genre_modifier/${genre.id}"><button>Modifier</button></a>
             <br>
         </c:forEach>
     </body>
